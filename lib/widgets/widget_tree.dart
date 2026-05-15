@@ -1,4 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:insta_clone/data/notifiers.dart';
+import 'package:insta_clone/pages/direct_page.dart';
+import 'package:insta_clone/pages/feed_page.dart';
+import 'package:insta_clone/pages/profile_page.dart';
+import 'package:insta_clone/pages/search_page.dart';
+import 'package:insta_clone/pages/suggested_page.dart';
+import 'package:insta_clone/widgets/custom_appbar.dart';
+import 'package:insta_clone/widgets/navbar.dart';
+
+List<Widget> _pages = [
+  FeedPage(),
+  SuggestedPage(),
+  DirectPage(),
+  SearchPage(),
+  ProfilePage(),
+];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});
@@ -6,16 +22,13 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Instaclone'),
+      appBar: CustomAppBar(title: 'Instaclone'),
+      body: ValueListenableBuilder(
+        valueListenable: selectedPageNotifier,
+        builder: (_, selectedPageIndex, _) =>
+            _pages.elementAt(selectedPageIndex),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [const Text('Hello World!!!')],
-        ),
-      ),
+      bottomNavigationBar: Navbar(),
     );
   }
 }
