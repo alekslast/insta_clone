@@ -8,8 +8,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
+    return SliverAppBar(
       title: Text(title, style: GoogleFonts.bilbo()),
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      floating: true,
+      snap: true,
+      centerTitle: true,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+      scrolledUnderElevation: 0,
       leading: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
       actions: [
         IconButton(onPressed: () {}, icon: Icon(Icons.favorite_outline)),

@@ -8,6 +8,8 @@ import 'package:insta_clone/pages/suggested_page.dart';
 import 'package:insta_clone/widgets/custom_appbar.dart';
 import 'package:insta_clone/widgets/navbar.dart';
 
+const String _title = 'Instaclone';
+
 List<Widget> _pages = [
   FeedPage(),
   SuggestedPage(),
@@ -22,11 +24,17 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Instaclone'),
-      body: ValueListenableBuilder(
-        valueListenable: selectedPageNotifier,
-        builder: (_, selectedPageIndex, _) =>
-            _pages.elementAt(selectedPageIndex),
+      body: SafeArea(
+        child: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            CustomAppBar(title: _title),
+          ],
+          body: ValueListenableBuilder(
+            valueListenable: selectedPageNotifier,
+            builder: (_, selectedPageIndex, _) =>
+                _pages.elementAt(selectedPageIndex),
+          ),
+        ),
       ),
       bottomNavigationBar: Navbar(),
     );

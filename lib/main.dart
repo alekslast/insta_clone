@@ -3,8 +3,10 @@ import 'package:insta_clone/widgets/widget_tree.dart';
 
 final lightTheme = ThemeData(
   brightness: Brightness.light,
+  textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.black)),
+  iconTheme: const IconThemeData(color: Colors.black),
   appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.transparent,
+    backgroundColor: Color(0xfffef7ff),
     foregroundColor: Colors.black,
     centerTitle: true,
     titleTextStyle: TextStyle(fontSize: 33, color: Colors.black),
@@ -14,9 +16,9 @@ final lightTheme = ThemeData(
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
   textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
-  iconTheme: IconThemeData(color: Colors.white),
+  iconTheme: const IconThemeData(color: Colors.white),
   appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.transparent,
+    backgroundColor: Color.fromARGB(255, 20, 18, 24),
     foregroundColor: Colors.white,
     centerTitle: true,
     titleTextStyle: TextStyle(fontSize: 33, color: Colors.white),
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Instaclone',
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.system,
