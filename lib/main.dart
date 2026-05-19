@@ -13,6 +13,8 @@ final lightTheme = ThemeData(
 
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
+  textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+  iconTheme: IconThemeData(color: Colors.white),
   appBarTheme: const AppBarTheme(
     backgroundColor: Colors.transparent,
     foregroundColor: Colors.white,
