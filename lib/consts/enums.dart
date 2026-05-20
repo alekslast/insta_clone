@@ -1,0 +1,1 @@
+enum IconOrientation { vertical, horizontal }

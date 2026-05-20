@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_clone/consts/posts_mock.dart';
-import 'package:insta_clone/widgets/post/post_widget.dart';
+import 'package:insta_clone/widgets/post/post_feed/post_widget.dart';
 import 'package:insta_clone/widgets/post/stories_scrollbar.dart';
 
 class FeedPage extends StatelessWidget {
