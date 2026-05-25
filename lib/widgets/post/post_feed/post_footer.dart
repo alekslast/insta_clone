@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:insta_clone/widgets/post/btn_click_responsive.dart';
+import 'package:insta_clone/widgets/btns/btn_click_responsive.dart';
 import 'package:insta_clone/widgets/post/expandable_caption.dart';
+import 'package:insta_clone/widgets/btns/like_btn.dart';
 import 'package:insta_clone/widgets/post/post_action_btn.dart';
 import 'package:insta_clone/widgets/post/upload_time_widget.dart';
+import 'package:insta_clone/widgets/customizable_icon.dart';
 
 class PostFooter extends StatelessWidget {
   final String nickname;
@@ -43,11 +45,7 @@ class PostFooter extends StatelessWidget {
         Row(
           spacing: 10.0,
           children: [
-            BtnClickResponsive(
-              activeIcon: Icon(Icons.favorite, color: Colors.red, size: 30),
-              idleIcon: Icons.favorite_outline,
-              counter: 123,
-            ),
+            LikeBtn(counter: 222),
 
             PostActionBtn(icon: Icons.comment, counter: 123),
             PostActionBtn(icon: Icons.autorenew, counter: 123),
@@ -56,12 +54,8 @@ class PostFooter extends StatelessWidget {
         ),
 
         BtnClickResponsive(
-          activeIcon: Icon(
-            Icons.bookmark_rounded,
-            color: Colors.white,
-            size: 30,
-          ),
-          idleIcon: Icons.bookmark_border_rounded,
+          activeIcon: CustomizableIcon(iconData: Icons.bookmark_rounded),
+          idleIcon: CustomizableIcon(iconData: Icons.bookmark_border_rounded),
         ),
       ],
     );

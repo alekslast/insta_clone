@@ -25,7 +25,7 @@ class PostWidget extends StatelessWidget {
               tag: 'post-preview-${post.id}',
               child: Stack(
                 children: [
-                  Container(height: double.infinity, color: Colors.amber),
+                  Container(height: double.infinity, color: Colors.grey),
 
                   Positioned(
                     top: 10,

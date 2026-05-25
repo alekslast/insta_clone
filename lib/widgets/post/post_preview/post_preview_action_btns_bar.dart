@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:insta_clone/consts/enums.dart';
-import 'package:insta_clone/widgets/post/btn_click_responsive.dart';
+import 'package:insta_clone/helpers/show_modal.dart';
+import 'package:insta_clone/widgets/customizable_icon.dart';
+import 'package:insta_clone/widgets/modals/comments_modal.dart';
+import 'package:insta_clone/widgets/btns/btn_click_responsive.dart';
+import 'package:insta_clone/widgets/btns/like_btn.dart';
 import 'package:insta_clone/widgets/post/post_action_btn.dart';
 
 class PostPreviewActionBtnsBar extends StatelessWidget {
@@ -11,17 +15,13 @@ class PostPreviewActionBtnsBar extends StatelessWidget {
     return Column(
       spacing: 12,
       children: [
-        BtnClickResponsive(
-          activeIcon: Icon(Icons.favorite, color: Colors.red, size: 30),
-          idleIcon: Icons.favorite_outline,
-          counter: 123,
-          orientation: IconOrientation.vertical,
-        ),
+        LikeBtn(counter: 111, orientation: IconOrientation.vertical),
 
         PostActionBtn(
           icon: Icons.comment,
           counter: 123,
           orientation: IconOrientation.vertical,
+          onPressFunc: () => showModal(context, CommentsModal()),
         ),
         PostActionBtn(
           icon: Icons.autorenew,
@@ -35,12 +35,8 @@ class PostPreviewActionBtnsBar extends StatelessWidget {
         ),
 
         BtnClickResponsive(
-          activeIcon: Icon(
-            Icons.bookmark_rounded,
-            color: Colors.white,
-            size: 30,
-          ),
-          idleIcon: Icons.bookmark_border_rounded,
+          activeIcon: CustomizableIcon(iconData: Icons.bookmark_rounded),
+          idleIcon: CustomizableIcon(iconData: Icons.bookmark_border_rounded),
           counter: 123,
           orientation: IconOrientation.vertical,
         ),

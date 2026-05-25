@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:insta_clone/consts/enums.dart';
+import 'package:insta_clone/widgets/customizable_icon.dart';
 import 'package:insta_clone/widgets/render_column.dart';
 import 'package:insta_clone/widgets/render_row.dart';
 
 class BtnClickResponsive extends StatefulWidget {
-  final IconData idleIcon;
-  final Icon activeIcon;
+  final CustomizableIcon idleIcon;
+  final CustomizableIcon activeIcon;
   final int? counter;
   final IconOrientation? orientation;
 
@@ -79,13 +80,7 @@ class _BtnClickResponsiveState extends State<BtnClickResponsive>
 
   @override
   Widget build(BuildContext context) {
-    Widget animatedIcon = _pressed
-        ? widget.activeIcon
-        : Icon(
-            widget.idleIcon,
-            color: Theme.of(context).iconTheme.color,
-            size: 30,
-          );
+    Widget animatedIcon = _pressed ? widget.activeIcon : widget.idleIcon;
 
     List<Widget> widgetList = [
       GestureDetector(

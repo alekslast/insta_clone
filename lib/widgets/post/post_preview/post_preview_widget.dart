@@ -11,8 +11,6 @@ class PostPreviewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-
     final screenHeight = MediaQuery.of(context).size.height;
     final contentHeight = screenHeight * 0.87;
     final commentHeight = screenHeight * 0.07;
@@ -20,7 +18,6 @@ class PostPreviewWidget extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        // resizeToAvoidBottomInset: true,
         appBar: AppBar(
           title: const Text('Reels', style: TextStyle(fontSize: 22)),
           backgroundColor: Colors.transparent,
@@ -29,12 +26,10 @@ class PostPreviewWidget extends StatelessWidget {
         ),
         body: Column(
           children: [
-            SizedBox(
-              height: contentHeight,
-              width: double.infinity,
+            Expanded(
               child: Stack(
                 children: [
-                  Container(color: Colors.amber),
+                  Container(color: Colors.grey),
 
                   Positioned(
                     bottom: 20,

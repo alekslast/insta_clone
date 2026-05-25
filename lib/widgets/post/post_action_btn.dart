@@ -8,6 +8,7 @@ class PostActionBtn extends StatefulWidget {
   final int counter;
   final bool? showCounter;
   final IconOrientation? orientation;
+  final Function onPressFunc;
 
   const PostActionBtn({
     super.key,
@@ -15,7 +16,10 @@ class PostActionBtn extends StatefulWidget {
     required this.counter,
     this.showCounter = true,
     this.orientation = IconOrientation.horizontal,
+    this.onPressFunc = _staticOnPress,
   });
+
+  static void _staticOnPress() {}
 
   @override
   State<PostActionBtn> createState() => _PostActionBtnState();
@@ -33,6 +37,8 @@ class _PostActionBtnState extends State<PostActionBtn> {
   }
 
   void handleTap() {
+    widget.onPressFunc();
+
     setState(() {
       _btnPressed ? _counter-- : _counter++;
       _btnPressed = !_btnPressed;
