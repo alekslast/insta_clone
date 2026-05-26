@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/rendering.dart';
+import 'package:insta_clone/models/comment_model.dart';
 import 'package:insta_clone/models/post_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -19,5 +20,19 @@ class ApiService {
     }
 
     throw Exception('Failed to load posts');
+  }
+
+  static Future<List<CommentModel>> fetchComments(int postId) async {
+    final response = await http.get(Uri.parse('$baseUrl/comment/all/$postId'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = json.decode(response.body);
+
+      debugPrint(response.body);
+
+      return data.map((json) => CommentModel.fromJson(json)).toList();
+    }
+
+    throw Exception('Failed to load comments');
   }
 }

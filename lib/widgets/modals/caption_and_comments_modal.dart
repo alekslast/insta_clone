@@ -7,10 +7,11 @@ import 'package:insta_clone/services/post_provider.dart';
 import 'package:insta_clone/widgets/add_comment_bar.dart';
 import 'package:insta_clone/widgets/drag_handle.dart';
 import 'package:insta_clone/widgets/other_comment/other_comment.dart';
+import 'package:insta_clone/widgets/post/post_caption_in_caption_and_comments.dart';
 import 'package:provider/provider.dart';
 
-class CommentsModal extends StatelessWidget {
-  const CommentsModal({super.key});
+class CaptionAndCommentsModal extends StatelessWidget {
+  const CaptionAndCommentsModal({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,24 +62,24 @@ class CommentsModal extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 60),
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 60),
                   child: ListView.separated(
                     itemCount: (result.data?.length ?? 0) + 1,
                     separatorBuilder: (context, index) =>
                         const SizedBox(height: 20),
                     itemBuilder: (context, index) {
                       if (index == 0) {
-                        return Container();
+                        return PostCaptionInCaptionAndComments(
+                          nickname: post?.authorName ?? '',
+                          caption: post?.caption ?? '',
+                        );
                       }
 
                       final comment = result.data![index - 1];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: OtherComment(
-                          authorNickname: comment.authorNickname,
-                          commentTxt: comment.text,
-                          likes: comment.likes,
-                        ),
+                      return OtherComment(
+                        authorNickname: comment.authorNickname,
+                        commentTxt: comment.text,
+                        likes: comment.likes,
                       );
                     },
                   ),

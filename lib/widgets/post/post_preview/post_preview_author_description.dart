@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:insta_clone/helpers/show_modal.dart';
 import 'package:insta_clone/services/post_provider.dart';
+import 'package:insta_clone/widgets/modals/caption_and_comments_modal.dart';
 import 'package:insta_clone/widgets/post/post_preview/avatar_mick_follow.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +22,14 @@ class PostPreviewAuthorDescription extends StatelessWidget {
         children: [
           AvatarNickFollow(nickname: authorNickname),
 
-          Text(postCaption, maxLines: 1, overflow: TextOverflow.ellipsis),
+          GestureDetector(
+            onTap: () => showModal(context, CaptionAndCommentsModal()),
+            child: Text(
+              postCaption,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ],
       ),
     );

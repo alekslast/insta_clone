@@ -5,11 +5,17 @@ import 'package:insta_clone/pages/other_user_profile_page.dart';
 import 'package:insta_clone/widgets/btns/like_btn.dart';
 import 'package:insta_clone/widgets/other_comment/expandable_comment.dart';
 
-const String _commentPlaceholder =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit turpis a ante iaculis elementum. Vestibulum non mauris quis nulla ultricies vestibulum. Nunc ultrices varius odio, at dignissim nulla cursus ut. Curabitur sollicitudin felis eget tellus semper tempus. Sed euismod tincidunt sagittis. Curabitur faucibus rhoncus enim aliquet bibendum. In hac habitasse platea dictumst.';
-
 class OtherComment extends StatelessWidget {
-  const OtherComment({super.key});
+  final String authorNickname;
+  final String commentTxt;
+  final int likes;
+
+  const OtherComment({
+    super.key,
+    required this.authorNickname,
+    required this.commentTxt,
+    required this.likes,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +32,7 @@ class OtherComment extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => navigateToPage(context, OtherUserProfilePage()),
-                child: Text('author name'),
+                child: Text(authorNickname),
               ),
 
               Row(
@@ -37,7 +43,7 @@ class OtherComment extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ExpandableComment(text: _commentPlaceholder),
+                        ExpandableComment(text: commentTxt),
                         Text(
                           'Reply',
                           style: TextStyle(
@@ -51,7 +57,7 @@ class OtherComment extends StatelessWidget {
                   ),
 
                   LikeBtn(
-                    counter: 321,
+                    counter: likes,
                     orientation: IconOrientation.vertical,
                     type: LikeBtnType.comment,
                   ),

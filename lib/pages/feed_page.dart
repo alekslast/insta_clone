@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tanstack_query/flutter_tanstack_query.dart';
-import 'package:insta_clone/consts/posts_mock.dart';
 import 'package:insta_clone/models/post_model.dart';
 import 'package:insta_clone/services/api_service.dart';
 import 'package:insta_clone/widgets/post/post_feed/post_widget.dart';
