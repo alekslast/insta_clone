@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_clone/widgets/post/post_preview/add_comment_widget.dart';
 import 'package:insta_clone/widgets/post/post_preview/post_preview_action_btns_bar.dart';
 import 'package:insta_clone/widgets/post/post_preview/post_preview_author_description.dart';
 
@@ -11,10 +12,6 @@ class PostPreviewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final contentHeight = screenHeight * 0.87;
-    final commentHeight = screenHeight * 0.07;
-
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
@@ -35,10 +32,7 @@ class PostPreviewWidget extends StatelessWidget {
                     bottom: 20,
                     left: 0,
                     right: 0,
-                    child: PostPreviewAuthorDescription(
-                      nickname: _nicknamePlaceholder,
-                      caption: _postCaptionPlaceholder,
-                    ),
+                    child: PostPreviewAuthorDescription(),
                   ),
 
                   Positioned(
@@ -50,32 +44,7 @@ class PostPreviewWidget extends StatelessWidget {
               ),
             ),
 
-            Container(
-              color: Colors.black,
-              height: commentHeight,
-              width: double.infinity,
-              child: Center(
-                child: TextField(
-                  style: TextStyle(fontSize: 14, color: Colors.white),
-
-                  decoration: InputDecoration(
-                    isDense: true,
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 59, 59, 59),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    hintText: 'Add comment...',
-                    hintStyle: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
+            AddCommentWidget(),
           ],
         ),
       ),

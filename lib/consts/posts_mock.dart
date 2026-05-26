@@ -2,7 +2,7 @@ import 'package:insta_clone/models/post_model.dart';
 
 List<PostModel> posts = [
   PostModel(
-    authorId: 1,
+    // authorId: 1,
     authorName: 'nickname123',
     content: '',
     creationDate: DateTime.now(),
@@ -16,7 +16,7 @@ List<PostModel> posts = [
     sent: 0,
   ),
   PostModel(
-    authorId: 1,
+    // authorId: 1,
     authorName: 'nickname123',
     content: '',
     creationDate: DateTime.now(),
@@ -29,7 +29,7 @@ List<PostModel> posts = [
     sent: 0,
   ),
   PostModel(
-    authorId: 1,
+    // authorId: 1,
     authorName: 'nickname123',
     content: '',
     creationDate: DateTime.now(),
@@ -42,7 +42,7 @@ List<PostModel> posts = [
     sent: 0,
   ),
   PostModel(
-    authorId: 1,
+    // authorId: 1,
     authorName: 'nickname123',
     content: '',
     creationDate: DateTime.now(),
