@@ -6,6 +6,7 @@ import 'package:insta_clone/widgets/modals/comments_modal.dart';
 import 'package:insta_clone/widgets/btns/btn_click_responsive.dart';
 import 'package:insta_clone/widgets/btns/like_btn.dart';
 import 'package:insta_clone/widgets/modals/more_options_modal.dart';
+import 'package:insta_clone/widgets/modals/send_to_friend_modal.dart';
 import 'package:insta_clone/widgets/post/post_action_btn.dart';
 
 class PostPreviewActionBtnsBar extends StatelessWidget {
@@ -33,6 +34,7 @@ class PostPreviewActionBtnsBar extends StatelessWidget {
           icon: Icons.send_rounded,
           counter: 123,
           orientation: IconOrientation.vertical,
+          onPressFunc: () => showModal(context, SendToFriendModal()),
         ),
 
         BtnClickResponsive(
